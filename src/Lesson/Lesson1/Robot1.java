@@ -1,4 +1,4 @@
-package Lesson;
+package Lesson.Lesson1;
 
 public class Robot1 {
     /**Уровень робота*/

@@ -1,6 +1,6 @@
-package Lesson;
+package Lesson.Lesson1;
 
-import static Lesson.Point2D.distance;
+import static Lesson.Lesson1.Point2D.distance;
 
 public class Lesson1 {
 //    static double distance(Point2D a, Point2D b){

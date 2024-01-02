@@ -1,4 +1,4 @@
-package Lesson;
+package Lesson.Lesson1;
 
 /*
 * Это точка 2D
