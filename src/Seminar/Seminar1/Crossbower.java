@@ -15,6 +15,8 @@ public class Crossbower extends Hero {
     protected int rangeMaxDamage;
     protected Vector2 position;
 
+
+
     @Override
     public String toString() {
         return ("Арбалетчик: " + nameHero + " " + "Здоровье: " + health + "/" + healthMax + " Броня: " + armor);
