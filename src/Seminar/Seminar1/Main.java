@@ -19,7 +19,7 @@ public class Main {
         for(Hero heroWhite : heroesWhite){
             if( heroWhite.getClassHeroes().equals("Арбалетчик")){
                 System.out.print("У арбалетчик: " +((Crossbower) heroWhite).getName() + " ближайшая цель: ");
-                ((Crossbower) heroWhite).showDistanceToEnemies(heroesWhite);
+                ((Crossbower) heroWhite).showDistanceToEnemies(heroesBlack);
             }
         }
 
