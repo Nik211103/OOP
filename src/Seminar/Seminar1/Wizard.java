@@ -2,7 +2,8 @@ package Seminar.Seminar1;
 
 public class Wizard extends Hero{
     public Wizard(String nameHero, int posX, int posY) {
-        super(50,
+        super(  "Колдун",
+                50,
                 50,
                 1,
                 new int[]{10, 15},
@@ -11,6 +12,6 @@ public class Wizard extends Hero{
     protected Vector2 position;
     @Override
     public String toString() {
-        return ("Колдун: " + nameHero + " " + "Здоровье: " + health + "/" + healthMax + " Броня: " + armor);
+        return ("Класс: " + classHero + " Имя: " + nameHero + " " + "Здоровье: " + health + "/" + healthMax + " Броня: " + armor);
     }
 }

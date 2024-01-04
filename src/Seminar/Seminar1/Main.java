@@ -13,8 +13,15 @@ public class Main {
         System.out.println("*************************************");
         heroesBlack.forEach(n -> System.out.println(n.toString()));
         System.out.println("*************************************");
-        heroesBlack.forEach(n -> n.printEnemyDistance(heroesWhite));
+        heroesBlack.forEach(n -> n.printEnemyDistance(heroesWhite)); //вызов позиций для всех
+        System.out.println();
 
+        for(Hero heroWhite : heroesWhite){
+            if( heroWhite.getClassHeroes().equals("Арбалетчик")){
+                System.out.print("У арбалетчик: " +((Crossbower) heroWhite).getName() + " ближайшая цель: ");
+                ((Crossbower) heroWhite).showDistanceToEnemies(heroesWhite);
+            }
+        }
 
 
         Random random = new Random();
@@ -62,6 +69,8 @@ public class Main {
     static String getName() {
         return NameOfHeroes.values()[new Random().nextInt(NameOfHeroes.values().length - 1)].name();
     }
+
+
 
 
 }

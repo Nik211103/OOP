@@ -15,8 +15,9 @@ public class Vector2 {
     public float rangeEnemy(Vector2 posEnemy) {
         double distance = Math.sqrt(Math.pow(posEnemy.Y - Y, 2) + Math.pow(posEnemy.X - X, 2));
         return (float) distance;
-
     }
+
+    //метод поиска дистанции врага
 
 
 

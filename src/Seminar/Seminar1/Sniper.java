@@ -2,7 +2,8 @@ package Seminar.Seminar1;
 
 public class Sniper extends Hero{
     public Sniper(String nameHero, int posX, int posY) {
-        super(75,
+        super(  "Снайпер",
+                75,
                 75,
                 2,
                 new int[]{10, 15},
@@ -11,6 +12,6 @@ public class Sniper extends Hero{
     protected Vector2 position;
     @Override
     public String toString() {
-        return ("Снайпер: " + nameHero + " " + "Здоровье: " + health + "/" + healthMax + " Броня: " + armor);
+        return ("Класс: " + classHero + " Имя: " + nameHero + " " + "Здоровье: " + health + "/" + healthMax + " Броня: " + armor);
     }
 }

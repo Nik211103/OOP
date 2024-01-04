@@ -2,7 +2,8 @@ package Seminar.Seminar1;
 
 public class Monk extends Hero{
     public Monk(String nameHero, int posX, int posY) {
-        super(50,
+        super(  "Монах",
+                50,
                 50,
                 1,
                 new int[]{-35, -30},
@@ -13,7 +14,7 @@ public class Monk extends Hero{
 
     @Override
     public String toString() {
-        return ("Монах: " + nameHero + " " + "Здоровье: " + health + "/" + healthMax + " Броня: " + armor);
+        return ("Класс: " + classHero + " Имя: " + nameHero + " " + "Здоровье: " + health + "/" + healthMax + " Броня: " + armor);
 
     }
 }
