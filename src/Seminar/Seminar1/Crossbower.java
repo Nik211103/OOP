@@ -28,7 +28,7 @@ public class Crossbower extends Hero {
     }
 
     protected int rangeMaxDamage;
-    protected Vector2 position;
+     Vector2 position;
 
     public String getName(){
         return nameHero;
@@ -38,6 +38,6 @@ public class Crossbower extends Hero {
 
         @Override
     public String toString() {
-        return ("Класс: " + classHero + " Имя: " + nameHero + " " + "Здоровье: " + health + "/" + healthMax + " Броня: " + armor);
+        return ("Класс:" + classHero + " Имя:" + nameHero + " " + "Здоровье:" + health + "/" + healthMax + " Броня:" + armor);
     }
 }

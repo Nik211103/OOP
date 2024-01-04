@@ -19,7 +19,7 @@ public class Main {
         for(Hero heroWhite : heroesWhite){
             if( heroWhite.getClassHeroes().equals("Арбалетчик")){
                 System.out.print("У арбалетчик: " +((Crossbower) heroWhite).getName() + " ближайшая цель: ");
-                ((Crossbower) heroWhite).showDistanceToEnemies(heroesWhite);
+                ((Crossbower) heroWhite).showDistanceToEnemies(heroesBlack);
             }
         }
 
@@ -69,8 +69,6 @@ public class Main {
     static String getName() {
         return NameOfHeroes.values()[new Random().nextInt(NameOfHeroes.values().length - 1)].name();
     }
-
-
 
 
 }
