@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Crossbower extends Hero {
+public class Crossbower extends Archer {
 
     public Crossbower(String nameHero, int posX, int posY) {
         super("Арбалетчик",
@@ -15,7 +15,7 @@ public class Crossbower extends Hero {
                 nameHero, posX, posY);
         rangeMaxDamage = 4;
         this.position = new Vector2(posX, posY);
-
+        this.maxArrows = this.currentArrows = 12;
     }
 
 
@@ -36,8 +36,5 @@ public class Crossbower extends Hero {
 
 
 
-        @Override
-    public String toString() {
-        return ("Класс:" + classHero + " Имя:" + nameHero + " " + "Здоровье:" + health + "/" + healthMax + " Броня:" + armor);
-    }
+
 }

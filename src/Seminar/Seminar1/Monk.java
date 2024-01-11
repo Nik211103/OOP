@@ -1,5 +1,7 @@
 package Seminar.Seminar1;
 
+import javax.swing.plaf.ColorUIResource;
+
 public class Monk extends Hero{
     public Monk(String nameHero, int posX, int posY) {
         super(  "Монах",
@@ -14,7 +16,7 @@ public class Monk extends Hero{
 
     @Override
     public String toString() {
-        return ("Класс: " + classHero + " Имя: " + nameHero + " " + "Здоровье: " + health + "/" + healthMax + " Броня: " + armor);
+        return ("Класс: " + classHero + " Имя: " + nameHero + " " + "Здоровье: " + currentHealth + "/" + healthMax + " Броня: " + armor);
 
     }
 }

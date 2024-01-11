@@ -12,6 +12,6 @@ public class Peasant extends Hero {
 protected Vector2 position;
     @Override
     public String toString() {
-        return ("Класс: " + classHero + " Имя: " + nameHero + " " + "Здоровье: " + health + "/" + healthMax + " Броня: " + armor);
+        return ("Класс: " + classHero + " Имя: " + nameHero + " " + "Здоровье: " + currentHealth + "/" + healthMax + " Броня: " + armor);
     }
 }
