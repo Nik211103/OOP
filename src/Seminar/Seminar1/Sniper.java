@@ -7,14 +7,14 @@ public class Sniper extends Archer {
                 75,
                 2,
                 new int[]{10, 15},
-                nameHero, posX, posY);
+                nameHero, posX, posY,
+                3);
         this.maxArrows = this.currentArrows = 10;
     }
     protected Vector2 position;
+
     @Override
     public String toString() {
-        return ("Класс: " + classHero + " Имя: " + nameHero + " " + "Здоровье: " + currentHealth + "/" + healthMax + " Броня: " + armor);
+        return super.toString();
     }
-
-
 }

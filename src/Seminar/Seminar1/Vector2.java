@@ -1,8 +1,5 @@
 package Seminar.Seminar1;
 
-
-
-
 public class Vector2 {
 
     int X, Y;

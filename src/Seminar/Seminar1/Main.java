@@ -22,11 +22,29 @@ public class Main {
                 ((Crossbower) heroWhite).showDistanceToEnemies(heroesBlack);
             }
         }
+        /*Проверка метода Step()
+        //ход 1
+        System.out.println("*************************************");
+        heroesWhite.forEach(n -> n.step(heroesBlack));//ход
+        System.out.println("*************************************");
+        heroesBlack.forEach(n -> n.step(heroesWhite));//ход
 
+        heroesWhite.forEach(n -> System.out.println(n.toString()));
+        System.out.println("*************************************");
+        heroesBlack.forEach(n -> System.out.println(n.toString()));
+        System.out.println("*************************************");//вывод
 
-        Random random = new Random();
+        //ход 2
+        System.out.println("*************************************");
+        heroesWhite.forEach(n -> n.step(heroesBlack));//ход
+        System.out.println("*************************************");
+        heroesBlack.forEach(n -> n.step(heroesWhite));//ход
 
-
+        heroesWhite.forEach(n -> System.out.println(n.toString()));
+        System.out.println("*************************************");
+        heroesBlack.forEach(n -> System.out.println(n.toString()));
+        System.out.println("*************************************");//вывод
+        */
     }
 
     static ArrayList<Hero> heroesWhite = new ArrayList<>();
