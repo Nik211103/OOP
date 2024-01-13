@@ -1,8 +1,5 @@
 package Seminar.Seminar1;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class Crossbower extends Archer {
 
@@ -12,20 +9,14 @@ public class Crossbower extends Archer {
                 75,
                 2,
                 new int[]{10, 15},
-                nameHero, posX, posY);
+                nameHero, posX, posY,
+                3);
         rangeMaxDamage = 4;
         this.position = new Vector2(posX, posY);
         this.maxArrows = this.currentArrows = 12;
     }
 
 
-
-    public void showDistanceToEnemies(List<Hero> enemies) {
-        ArrayList<Float> listPositions = new ArrayList<>();
-        enemies.forEach(n -> listPositions.add(position.rangeEnemy(n.position)));
-        float closeEnemy = Collections.min(listPositions);
-        System.out.println(closeEnemy);
-    }
 
     protected int rangeMaxDamage;
      Vector2 position;
@@ -34,7 +25,9 @@ public class Crossbower extends Archer {
         return nameHero;
     }
 
-
-
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 
 }

@@ -1,5 +1,7 @@
 package Seminar.Seminar1;
 
+import java.util.ArrayList;
+
 public class Peasant extends Hero {
     public Peasant(String nameHero, int posX, int posY) {
         super(  "Кретьянин",
@@ -7,11 +9,20 @@ public class Peasant extends Hero {
                 100,
                 0,
                 new int[]{0, 0},
-                nameHero, posX, posY);
+                nameHero, posX, posY,
+                0);
+
+
     }
 protected Vector2 position;
     @Override
+    public void step(ArrayList<Hero> enemies) {
+        return;
+    }
+
+
+    @Override
     public String toString() {
-        return ("Класс: " + classHero + " Имя: " + nameHero + " " + "Здоровье: " + currentHealth + "/" + healthMax + " Броня: " + armor);
+        return super.toString();
     }
 }
