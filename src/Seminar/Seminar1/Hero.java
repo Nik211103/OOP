@@ -39,7 +39,13 @@ protected void getDamage(int damage) {
     }
 }
 
+    public Vector2 getPosition() {
+        return position;
+    }
 
+    public void setPosition(Vector2 newPosition) {
+        this.position = newPosition;
+    }
 
 
     protected Hero findNearestAliveEnemy(ArrayList<Hero> enemies) {
@@ -86,9 +92,6 @@ protected void getDamage(int damage) {
 
 
 
-    public Vector2 getPosition() {
-        return position;
-    }
 
 
     public void printEnemyDistance(ArrayList<Hero> enemys) {

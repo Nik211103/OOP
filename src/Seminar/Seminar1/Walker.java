@@ -1,9 +1,10 @@
+
 package Seminar.Seminar1;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public abstract class Walker extends Hero {
+public abstract class Walker extends Hero{
 
 
     public Walker(String classHero, int healthMax, int currentHealth, int armor, int[] damage, String nameHero, int posX, int posY, int initiative) {
@@ -12,55 +13,50 @@ public abstract class Walker extends Hero {
 
     protected void attack(Hero enemy) {
         Random random = new Random();
-        enemy.getDamage(random.nextInt(damage[0], damage[1]));
+        enemy.getDamage(random.nextInt(damage[0],damage[1]));
     }
 
-    public void going(Hero enemy){
-
-        Vector2 delta = position.getDelta(enemy.position);
-
-        if (delta.X < 0) {
-            position.X++;
-            return;
-        }
-        if (delta.X > 0 ) {
-            position.X--;
-            return;
-        }
-        if (delta.Y < 0 ) {
-            position.Y++;
-            return;
-        }
-        if (delta.X > 0 ) {
-            position.Y--;
-        }
-    }
-
-    @Override
     public void step(ArrayList<Hero> enemies) {
-        if (currentHealth == 0) return;
-        Hero tmp = findBestEnemyDistance(enemies);
-        if(position.rangeEnemy(tmp.position) < 2){
-            attack(tmp);
+        if (currentHealth > 0) {
+            Hero nearestEnemy = findNearestAliveEnemy(enemies);
+            float distanceToNearestEnemy = position.rangeEnemy(nearestEnemy.getPosition());
+
+            if (distanceToNearestEnemy > 1) {
+                going(enemies); // Если враг находится далеко, персонаж идет к нему
+            } else {
+                attack(nearestEnemy); // Если враг находится рядом, персонаж начинает атаковать
+            }
+        } else {
+            return;
         }
-        else {
-            going(tmp);
-        }
-        Hero nearestEnemy = findBestEnemyDistance(enemies);
-        attack(nearestEnemy);
     }
 
+    public void going(ArrayList<Hero> enemies){
+        Hero nearestEnemy = findNearestAliveEnemy(enemies);
+        float minDistance = Float.MAX_VALUE;
+        Vector2 newPosition = new Vector2(posX, posY); // Новая позиция по умолчанию
 
-    public Hero findBestEnemyDistance(ArrayList<Hero> enemies) {
-        Hero heroTmp = enemies.get(0);
-        for (int i = 0; i < enemies.size(); i++) {
-            if (this.position.rangeEnemy(enemies.get(i).position) < this.position.rangeEnemy(heroTmp.position) && enemies.get(i).currentHealth > 0) {
-                heroTmp = enemies.get(i);
+        for (Hero enemy : enemies) {
+            float distance = position.rangeEnemy(enemy.getPosition());
+            if (distance < minDistance) {
+                minDistance = distance;
+                newPosition = enemy.getPosition();
             }
         }
 
-        return heroTmp;
+        if (getPosition().getX() < newPosition.getX()) {
+            newPosition.setX(newPosition.getX() + 1); // Идти вправо
+        } else if (getPosition().getX() > newPosition.getX()) {
+            newPosition.setX(newPosition.getX() - 1); // Идти влево
+        }
+        if (getPosition().getY() < newPosition.getY()) {
+            newPosition.setY(newPosition.getY() + 1); // Идти вверх
+        } else if (getPosition().getY() > newPosition.getY()) {
+            newPosition.setY(newPosition.getY() - 1); // Идти вниз
+        }
     }
+
+
 
 
     @Override
@@ -68,4 +64,3 @@ public abstract class Walker extends Hero {
         return super.toString();
     }
 }
-
