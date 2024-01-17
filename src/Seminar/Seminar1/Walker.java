@@ -58,6 +58,7 @@ public abstract class Walker extends Hero {
                 heroTmp = enemies.get(i);
             }
         }
+
         return heroTmp;
     }
 
