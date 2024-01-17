@@ -2,7 +2,7 @@ package Seminar.Seminar1;
 
 import java.util.ArrayList;
 
-public class Pikeman extends Hero{
+public class Pikeman extends Walker{
     public Pikeman(String nameHero, int posX, int posY) {
         super(  "Копейщик",
                 100,
@@ -14,10 +14,7 @@ public class Pikeman extends Hero{
     }
     protected Vector2 position;
 
-    @Override
-    public void step(ArrayList<Hero> enemies) {
-        return;
-    }
+
     @Override
     public String toString() {
         return super.toString();

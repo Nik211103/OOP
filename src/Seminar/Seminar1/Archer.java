@@ -1,8 +1,6 @@
 package Seminar.Seminar1;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
 public abstract class Archer extends Hero{
@@ -16,7 +14,6 @@ public abstract class Archer extends Hero{
 
 
 protected void attack(Hero enemy) {
-    currentArrows -= 1;
     Random random = new Random();
     enemy.getDamage(random.nextInt(damage[0],damage[1]));
 }
@@ -30,12 +27,7 @@ protected void attack(Hero enemy) {
         }
     }
 
-    public void showDistanceToEnemies(List<Hero> enemies) {
-        ArrayList<Float> listPositions = new ArrayList<>();
-        enemies.forEach(n -> listPositions.add(position.rangeEnemy(n.position)));
-        float closeEnemy = Collections.min(listPositions);
-        System.out.println(closeEnemy);
-    }
+
 
     @Override
     public void step(ArrayList<Hero> enemies) {
@@ -45,6 +37,7 @@ protected void attack(Hero enemy) {
         } else {
             return;
         }
+        currentArrows -= 1;
     }
 
     protected void getArrows(int newArrows) {
