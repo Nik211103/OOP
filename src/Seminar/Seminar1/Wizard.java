@@ -2,7 +2,7 @@ package Seminar.Seminar1;
 
 import java.util.ArrayList;
 
-public class Wizard extends Hero{
+public class Wizard extends Walker{
     public Wizard(String nameHero, int posX, int posY) {
         super(  "Колдун",
                 50,
@@ -14,10 +14,7 @@ public class Wizard extends Hero{
     }
     protected Vector2 position;
 
-    @Override
-    public void step(ArrayList<Hero> enemies) {
-        return;
-    }
+
     @Override
     public String toString() {
         return super.toString();

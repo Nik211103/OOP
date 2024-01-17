@@ -36,7 +36,11 @@ protected void getDamage(int damage) {
         }
     } else {
         currentHealth = currentHealth + armor - damage;
+        if(currentHealth < 0){
+            currentHealth = 0;
+        }
     }
+
 }
 
     public Vector2 getPosition() {
@@ -92,8 +96,6 @@ protected void getDamage(int damage) {
 
 
 
-
-
     public void printEnemyDistance(ArrayList<Hero> enemys) {
         enemys.forEach(n -> System.out.print(position.rangeEnemy(n.position) + ", "));
         System.out.println();
@@ -105,6 +107,8 @@ protected void getDamage(int damage) {
         closeEnemy = Collections.min(listPositions);
         System.out.println(closeEnemy);
     }
+
+
 
     //метод печати метода нахождения дистанции для всех
     public abstract void step(ArrayList<Hero> enemies);

@@ -20,11 +20,11 @@ public abstract class Walker extends Hero{
         if (currentHealth > 0) {
             Hero nearestEnemy = findNearestAliveEnemy(enemies);
             float distanceToNearestEnemy = position.rangeEnemy(nearestEnemy.getPosition());
+            if(distanceToNearestEnemy > 1 && distanceToNearestEnemy < 2)  {
+                attack(nearestEnemy);// Если враг находится рядом, персонаж начинает атаковать
 
-            if (distanceToNearestEnemy > 1) {
+            }else {
                 going(enemies); // Если враг находится далеко, персонаж идет к нему
-            } else {
-                attack(nearestEnemy); // Если враг находится рядом, персонаж начинает атаковать
             }
         } else {
             return;
@@ -44,15 +44,16 @@ public abstract class Walker extends Hero{
             }
         }
 
+        //Здесь была ошибка, позиция при ходьбе менялась не так как надо, она прибавлялась в координаты врага
         if (getPosition().getX() < newPosition.getX()) {
-            newPosition.setX(newPosition.getX() + 1); // Идти вправо
+            newPosition.setX(newPosition.getX() - 1); // Идти вправо
         } else if (getPosition().getX() > newPosition.getX()) {
-            newPosition.setX(newPosition.getX() - 1); // Идти влево
+            newPosition.setX(newPosition.getX() + 1); // Идти влево
         }
         if (getPosition().getY() < newPosition.getY()) {
-            newPosition.setY(newPosition.getY() + 1); // Идти вверх
+            newPosition.setY(newPosition.getY() - 1); // Идти вверх
         } else if (getPosition().getY() > newPosition.getY()) {
-            newPosition.setY(newPosition.getY() - 1); // Идти вниз
+            newPosition.setY(newPosition.getY() + 1); // Идти вниз
         }
     }
 

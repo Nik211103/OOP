@@ -34,8 +34,12 @@ public class Main {
         heroesBlack.forEach(n -> System.out.println(n.toString()));
         System.out.println("*************************************");//вывод
 
+        for (Hero heroWhite : heroesWhite) {
+            System.out.print("У " + heroWhite.classHero + " " + getName() + " ближайшая цель: ");
+            (heroWhite).showDistanceToEnemies(heroesBlack);
+        }
+
         //ход 2
-        System.out.println("*************************************");
         heroesWhite.forEach(n -> n.step(heroesBlack));//ход
         System.out.println("*************************************");
         heroesBlack.forEach(n -> n.step(heroesWhite));//ход
@@ -51,6 +55,38 @@ public class Main {
         }
 
         //ход 3
+        System.out.println("*************************************");
+        heroesWhite.forEach(n -> n.step(heroesBlack));//ход
+        System.out.println("*************************************");
+        heroesBlack.forEach(n -> n.step(heroesWhite));//ход
+
+        heroesWhite.forEach(n -> System.out.println(n.toString()));
+        System.out.println("*************************************");
+        heroesBlack.forEach(n -> System.out.println(n.toString()));
+        System.out.println("*************************************");//вывод
+
+        for (Hero heroWhite : heroesWhite) {
+            System.out.print("У " + heroWhite.classHero + " " + getName() + " ближайшая цель: ");
+            (heroWhite).showDistanceToEnemies(heroesBlack);
+        }
+
+        //ход 4
+        System.out.println("*************************************");
+        heroesWhite.forEach(n -> n.step(heroesBlack));//ход
+        System.out.println("*************************************");
+        heroesBlack.forEach(n -> n.step(heroesWhite));//ход
+
+        heroesWhite.forEach(n -> System.out.println(n.toString()));
+        System.out.println("*************************************");
+        heroesBlack.forEach(n -> System.out.println(n.toString()));
+        System.out.println("*************************************");//вывод
+
+        for (Hero heroWhite : heroesWhite) {
+            System.out.print("У " + heroWhite.classHero + " " + getName() + " ближайшая цель: ");
+            (heroWhite).showDistanceToEnemies(heroesBlack);
+        }
+
+        //ход 5
         System.out.println("*************************************");
         heroesWhite.forEach(n -> n.step(heroesBlack));//ход
         System.out.println("*************************************");
