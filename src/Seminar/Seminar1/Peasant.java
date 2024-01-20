@@ -1,6 +1,5 @@
 package Seminar.Seminar1;
 
-import java.util.ArrayList;
 
 public class Peasant extends Walker {
     public Peasant(String nameHero, int posX, int posY) {

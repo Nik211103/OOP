@@ -1,7 +1,5 @@
 package Seminar.Seminar1;
 
-import java.util.ArrayList;
-
 public class Rogue extends Walker {
     public Rogue(String nameHero, int posX, int posY) {
         super(  "Разбойник",

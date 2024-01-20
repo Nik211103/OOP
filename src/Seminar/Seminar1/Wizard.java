@@ -1,6 +1,5 @@
 package Seminar.Seminar1;
 
-import java.util.ArrayList;
 
 public class Wizard extends Walker{
     public Wizard(String nameHero, int posX, int posY) {

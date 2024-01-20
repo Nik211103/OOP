@@ -14,8 +14,12 @@ public abstract class Archer extends Hero{
 
 
 protected void attack(Hero enemy) {
-    Random random = new Random();
-    enemy.getDamage(random.nextInt(damage[0],damage[1]));
+    if(enemy == null){
+        win();
+    }else {
+        Random random = new Random();
+        enemy.getDamage(random.nextInt(damage[0], damage[1]));
+    }
 }
 
     public void replenishmentArrows(int arrows){
@@ -38,11 +42,15 @@ protected void attack(Hero enemy) {
             return;
         }
         currentArrows -= 1;
+
+        if(currentArrows == 0){
+            replenishmentArrows(maxArrows);
+        }
     }
 
-    protected void getArrows(int newArrows) {
-        return;
-    }
+//    protected void getArrows(int newArrows) {
+//        return;
+//    }
 
 
     @Override

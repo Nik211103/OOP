@@ -2,18 +2,15 @@ package Seminar.Seminar1;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+
 
 
 public abstract class Hero {
-    protected static Random random = new Random();
     protected int healthMax, currentHealth, armor, initiative, posX, posY;
     protected Vector2 position;
     int[] damage;
     protected String nameHero, classHero;
     protected float closeEnemy;
-
 
 
     public Hero(String classHero, int healthMax, int currentHealth, int armor, int[] damage, String nameHero, int posX, int posY, int initiative) {
@@ -28,27 +25,38 @@ public abstract class Hero {
     }
 
 
-protected void getDamage(int damage) {
-    if (armor > 0) {
-        armor -= damage;
-        if(armor < 0){
-            armor = 0;
+    protected void getDamage(int damage) {
+        if (armor > 0) {
+            armor -= damage;
+            if (armor < 0) {
+                armor = 0;
+            }
+        } else {
+            currentHealth = currentHealth + armor - damage;
+            if (currentHealth < 0) {
+                currentHealth = 0;
+            }
         }
-    } else {
-        currentHealth = currentHealth + armor - damage;
-        if(currentHealth < 0){
-            currentHealth = 0;
-        }
+
     }
 
-}
+    public void win(){
+        System.out.println("Победа!");
+    }
 
+    public void die(ArrayList<Hero> heroes) {
+        System.out.println(classHero + " " +nameHero + " Умер"); // Удалить персонажа из списка
+    }
     public Vector2 getPosition() {
         return position;
     }
 
     public void setPosition(Vector2 newPosition) {
         this.position = newPosition;
+    }
+
+    public float getCloseEnemy() {
+        return closeEnemy;
     }
 
 
@@ -67,7 +75,7 @@ protected void getDamage(int damage) {
 
         for (int j = i + 1; j < enemiesNumber; j++) {
             currentEnemy = enemies.get(j);
-            if(currentEnemy.currentHealth > 0) {
+            if (currentEnemy.currentHealth > 0) {
                 assert nearestAliveEnemy != null;
                 if (position.rangeEnemy(currentEnemy.position) < position.rangeEnemy(nearestAliveEnemy.position)) {
                     nearestAliveEnemy = currentEnemy;
@@ -78,30 +86,35 @@ protected void getDamage(int damage) {
     }
 
 
-
     public String getClassHeroes() {
         return this.classHero; // Возвращает значение поля classHero из текущего экземпляра
     }
 
-    public int getHealthMax() {return healthMax;}
+    public int getHealthMax() {
+        return healthMax;
+    }
 
-    public int getCurrentHealth() {return currentHealth;}
+    public int getCurrentHealth() {
+        return currentHealth;
+    }
 
-    public int getArmor() {return armor;}
-    public int getInitiative() {return initiative;}
+    public int getArmor() {
+        return armor;
+    }
 
-    public float getCloseEnemy() {
-        return closeEnemy;
+    public int getInitiative() {
+        return initiative;
     }
 
 
+    //метод печати метода нахождения дистанции для всех
 
-    public void printEnemyDistance(ArrayList<Hero> enemys) {
-        enemys.forEach(n -> System.out.print(position.rangeEnemy(n.position) + ", "));
+    public void printEnemyDistance(ArrayList<Hero> enemies) {
+        enemies.forEach(n -> System.out.print(position.rangeEnemy(n.position) + ", "));
         System.out.println();
     }
 
-    public void showDistanceToEnemies(List<Hero> enemies) {
+    public void showDistanceToEnemies(ArrayList<Hero> enemies) {
         ArrayList<Float> listPositions = new ArrayList<>();
         enemies.forEach(n -> listPositions.add(position.rangeEnemy(n.position)));
         closeEnemy = Collections.min(listPositions);
@@ -109,15 +122,12 @@ protected void getDamage(int damage) {
     }
 
 
-
-    //метод печати метода нахождения дистанции для всех
     public abstract void step(ArrayList<Hero> enemies);
 
     @Override
     public String toString() {
         return ("Класс: " + classHero + " Имя: " + nameHero + " " + "Здоровье: " + currentHealth + "/" + healthMax + " Броня: " + armor);
     }
-
 
 
 }

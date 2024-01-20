@@ -1,6 +1,4 @@
 package Seminar.Seminar1;
-import java.util.ArrayList;
-
 
 public class Monk extends Walker{
     public Monk(String nameHero, int posX, int posY) {
@@ -8,7 +6,7 @@ public class Monk extends Walker{
                 50,
                 50,
                 1,
-                new int[]{-35, -30},
+                new int[]{0, 2},
                 nameHero, posX, posY,
                 2);
     }

@@ -1,6 +1,5 @@
 package Seminar.Seminar1;
 
-import java.util.ArrayList;
 
 public class Pikeman extends Walker{
     public Pikeman(String nameHero, int posX, int posY) {

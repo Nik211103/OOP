@@ -21,9 +21,9 @@ public class Crossbower extends Archer {
     protected int rangeMaxDamage;
      Vector2 position;
 
-    public String getName(){
-        return nameHero;
-    }
+//    public String getName(){
+//        return nameHero;
+//    }
 
     @Override
     public String toString() {
