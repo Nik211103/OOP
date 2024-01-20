@@ -22,7 +22,7 @@ public class Main {
             System.out.print("У " + heroWhite.classHero + " " + heroWhite.nameHero + " ближайшая цель: ");
             (heroWhite).showDistanceToEnemies(heroesBlack);
         }
-//        //Проверка метода Step()
+//
         //ход 1
         System.out.println("*************************************");
         heroesWhite.forEach(n -> n.step(heroesBlack));//ход
