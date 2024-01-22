@@ -1,138 +1,100 @@
 package Seminar.Seminar1;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
+public abstract class Hero implements Game {
 
-
-public abstract class Hero {
-    protected int healthMax, currentHealth, armor, initiative, posX, posY;
+    protected String name;
+    protected float maxHealth, health, maxArmor, armor;
+    protected int[] damage;
     protected Vector2 position;
-    int[] damage;
-    protected String nameHero, classHero;
-    protected float closeEnemy;
 
+    protected int initiative;
 
-    public Hero(String classHero, int healthMax, int currentHealth, int armor, int[] damage, String nameHero, int posX, int posY, int initiative) {
-        this.classHero = classHero;
-        this.healthMax = healthMax;
-        this.currentHealth = currentHealth;
+    public Hero(String name, int maxHealth, int health, int maxArmor, int armor, int[] damage, int x, int y, int initiative) {
+        this.name = name;
+        this.maxHealth = maxHealth;
+        this.health = health;
+        this.maxArmor = maxArmor;
         this.armor = armor;
         this.damage = damage;
-        this.nameHero = nameHero;
-        this.position = new Vector2(posX, posY);
+        this.position = new Vector2(x, y);
         this.initiative = initiative;
     }
 
+    public String getName() {return name;}
 
-    protected void getDamage(int damage) {
-        if (armor > 0) {
-            armor -= damage;
-            if (armor < 0) {
-                armor = 0;
-            }
-        } else {
-            currentHealth = currentHealth + armor - damage;
-            if (currentHealth < 0) {
-                currentHealth = 0;
-            }
-        }
+    public float getMaxHealth() {return maxHealth;}
 
+    public float getHealth() {return health;}
+
+    public float getMaxArmor() {return maxArmor;}
+
+    public float getArmor() {return armor;}
+
+    public int[] getPosition() {
+        return new int[]{position.x, position.y};
     }
 
-    public void win(){
-        System.out.println("Победа!");
+    public int getInitiative() {return initiative;}
+
+    public abstract String getInfo();
+
+    public boolean isDead() {
+        return health == 0;
     }
 
-    public void die(ArrayList<Hero> heroes) {
-        System.out.println(classHero + " " +nameHero + " Умер"); // Удалить персонажа из списка
-    }
-    public Vector2 getPosition() {
-        return position;
+    protected void printDistance(ArrayList<Hero> enemies) {
+        enemies.forEach(n->System.out.print(position.getDistance(n) + ", "));
     }
 
-    public void setPosition(Vector2 newPosition) {
-        this.position = newPosition;
-    }
-
-    public float getCloseEnemy() {
-        return closeEnemy;
-    }
-
-
-    protected Hero findNearestAliveEnemy(ArrayList<Hero> enemies) {
+    protected Hero nearestAlive(ArrayList<Hero> heroes) {
         int i;
         Hero currentEnemy, nearestAliveEnemy = null;
-        int enemiesNumber = enemies.size();
+        int enemiesSize = heroes.size();
 
-        for (i = 0; i < enemiesNumber; i++) {
-            currentEnemy = enemies.get(i);
-            if (currentEnemy.currentHealth > 0) {
+        for (i = 0; i < enemiesSize; i++) {
+            currentEnemy = heroes.get(i);
+            if (currentEnemy.health > 0) {
                 nearestAliveEnemy = currentEnemy;
                 break;
             }
         }
 
-        for (int j = i + 1; j < enemiesNumber; j++) {
-            currentEnemy = enemies.get(j);
-            if (currentEnemy.currentHealth > 0) {
+        for (int j = i + 1; j < enemiesSize; j++) {
+            currentEnemy = heroes.get(j);
+            if(currentEnemy.health > 0) {
                 assert nearestAliveEnemy != null;
-                if (position.rangeEnemy(currentEnemy.position) < position.rangeEnemy(nearestAliveEnemy.position)) {
+                if (position.getDistance(currentEnemy) < position.getDistance(nearestAliveEnemy)) {
                     nearestAliveEnemy = currentEnemy;
                 }
             }
         }
+
         return nearestAliveEnemy;
     }
 
+    protected void receiveDamage(float damage) {
+        if (damage < armor) {
+            armor -= damage;
+        } else {
+            health -= (damage - armor);
+            armor = 0;
+        }
 
-    public String getClassHeroes() {
-        return this.classHero; // Возвращает значение поля classHero из текущего экземпляра
+        if (health < 0) health = 0;
     }
 
-    public int getHealthMax() {
-        return healthMax;
+    protected void receiveHealing(float healPoint) {
+        health += healPoint;
     }
 
-    public int getCurrentHealth() {
-        return currentHealth;
-    }
+    public void attack(Hero enemy) {}
 
-    public int getArmor() {
-        return armor;
-    }
-
-    public int getInitiative() {
-        return initiative;
-    }
-
-
-    //метод печати метода нахождения дистанции для всех
-
-    public void printEnemyDistance(ArrayList<Hero> enemies) {
-        enemies.forEach(n -> System.out.print(position.rangeEnemy(n.position) + ", "));
-        System.out.println();
-    }
-
-    public void showDistanceToEnemies(ArrayList<Hero> enemies) {
-        ArrayList<Float> listPositions = new ArrayList<>();
-        enemies.forEach(n -> listPositions.add(position.rangeEnemy(n.position)));
-        closeEnemy = Collections.min(listPositions);
-        System.out.println(closeEnemy);
-    }
-
-
-    public abstract void step(ArrayList<Hero> enemies);
+    public void step(ArrayList<Hero> enemies, ArrayList<Hero> teammates) {}
 
     @Override
     public String toString() {
-        return ("Класс: " + classHero + " Имя: " + nameHero + " " + "Здоровье: " + currentHealth + "/" + healthMax + " Броня: " + armor);
+        return "-" + name + " => Здоровье: " + health + "/" + maxHealth + ", Броня: " + armor + "/" + maxArmor + ", Позиция: (" + position.x + ", " + position.y + ")";
     }
-
-
 }
-
-
-
-
-

@@ -1,21 +1,30 @@
 package Seminar.Seminar1;
 
+public class Wizard extends Hero {
 
-public class Wizard extends Walker{
-    public Wizard(String nameHero, int posX, int posY) {
-        super(  "Колдун",
-                50,
-                50,
-                1,
-                new int[]{10, 15},
-                nameHero, posX, posY,
+    int maxMana, currentMana;
+
+    public Wizard(String name, int x, int y) {
+        super(name,
+                100,
+                100,
+                5,
+                5,
+                new int[]{20, 30},
+                x,
+                y,
                 1);
+        maxMana = 100;
+        currentMana = maxMana;
     }
-    protected Vector2 position;
 
+    @Override
+    public String getInfo() {
+        return "Маг";
+    }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Маг" + super.toString();
     }
 }

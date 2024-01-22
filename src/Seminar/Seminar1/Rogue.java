@@ -1,20 +1,26 @@
 package Seminar.Seminar1;
 
 public class Rogue extends Walker {
-    public Rogue(String nameHero, int posX, int posY) {
-        super(  "Разбойник",
+    public Rogue(String name, int x, int y) {
+        super(name,
                 100,
                 100,
-                5,
+                50,
+                50,
                 new int[]{20, 30},
-                nameHero, posX, posY,
+                x,
+                y,
+                2,
                 2);
     }
-    protected Vector2 position;
 
+    @Override
+    public String getInfo() {
+        return "Разбойник";
+    }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Разбойник" + super.toString();
     }
 }

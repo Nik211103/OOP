@@ -1,21 +1,27 @@
 package Seminar.Seminar1;
 
-public class Monk extends Walker{
-    public Monk(String nameHero, int posX, int posY) {
-        super(  "Монах",
+public class Monk extends Healer {
+    public Monk(String name, int x, int y) {
+        super(name,
                 50,
                 50,
-                1,
-                new int[]{0, 2},
-                nameHero, posX, posY,
+                0,
+                0,
+                new int[]{-10, -15},
+                x,
+                y,
+                2,
+                7,
                 2);
     }
-    protected Vector2 position;
 
-
+    @Override
+    public String getInfo() {
+        return "Монах";
+    }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Монах" + super.toString();
     }
 }

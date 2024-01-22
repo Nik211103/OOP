@@ -1,23 +1,25 @@
 package Seminar.Seminar1;
 
-
-public class Peasant extends Walker {
-    public Peasant(String nameHero, int posX, int posY) {
-        super(  "Кретьянин",
+public class Peasant extends Hero {
+    public Peasant(String name, int x, int y) {
+        super(name,
                 100,
                 100,
                 0,
+                0,
                 new int[]{0, 0},
-                nameHero, posX, posY,
+                x,
+                y,
                 0);
-
-
     }
-protected Vector2 position;
 
+    @Override
+    public String getInfo() {
+        return "Человек";
+    }//Для удобства отображения на карте(т.к. К-крестьянин и К-копейщик)
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Человек" + super.toString();
     }
 }
