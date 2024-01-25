@@ -1,4 +1,4 @@
-package Seminar.Seminar1;
+package Project.AbstractCLasesAndInterface;
 
 import java.util.ArrayList;
 import java.util.Random;

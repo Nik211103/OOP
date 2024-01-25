@@ -1,6 +1,8 @@
-package Seminar.Seminar1;
+package Project.Hero;
 
-public class Crossbower extends Archer{
+import Project.AbstractCLasesAndInterface.Archer;
+
+public class Crossbower extends Archer {
 
     public Crossbower(String name, int x, int y) {
         super(name,

@@ -1,4 +1,9 @@
-package Seminar.Seminar1;
+package Project.AbstractCLasesAndInterface;
+
+import Project.AbstractCLasesAndInterface.Hero;
+import Project.Hero.*;
+import Project.SystemFile.NameOfHeroes;
+import Project.SystemFile.View;
 
 import java.util.*;
 

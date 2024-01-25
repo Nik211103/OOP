@@ -1,4 +1,6 @@
-package Seminar.Seminar1;
+package Project.AbstractCLasesAndInterface;
+
+import Project.SystemFile.Vector2;
 
 import java.util.ArrayList;
 import java.util.Random;

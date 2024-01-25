@@ -1,4 +1,6 @@
-package Seminar.Seminar1;
+package Project.Hero;
+
+import Project.AbstractCLasesAndInterface.Walker;
 
 public class Pikeman extends Walker {
     public Pikeman(String name, int x, int y) {

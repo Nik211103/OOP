@@ -1,4 +1,6 @@
-package Seminar.Seminar1;
+package Project.Hero;
+
+import Project.AbstractCLasesAndInterface.Hero;
 
 public class Wizard extends Hero {
 

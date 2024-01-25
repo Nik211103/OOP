@@ -1,4 +1,6 @@
-package Seminar.Seminar1;
+package Project.SystemFile;
+
+import Project.AbstractCLasesAndInterface.Hero;
 
 public class Vector2 {
     protected int x, y;

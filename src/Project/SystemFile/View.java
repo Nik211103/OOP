@@ -1,4 +1,7 @@
-package Seminar.Seminar1;
+package Project.SystemFile;
+
+import Project.AbstractCLasesAndInterface.Hero;
+import Project.AbstractCLasesAndInterface.Main;
 
 import java.util.Collections;
 

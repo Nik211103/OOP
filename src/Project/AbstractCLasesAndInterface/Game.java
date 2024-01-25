@@ -1,4 +1,6 @@
-package Seminar.Seminar1;
+package Project.AbstractCLasesAndInterface;
+
+import Project.AbstractCLasesAndInterface.Hero;
 
 import java.util.ArrayList;
 

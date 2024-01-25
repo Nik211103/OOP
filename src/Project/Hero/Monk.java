@@ -1,4 +1,6 @@
-package Seminar.Seminar1;
+package Project.Hero;
+
+import Project.AbstractCLasesAndInterface.Healer;
 
 public class Monk extends Healer {
     public Monk(String name, int x, int y) {

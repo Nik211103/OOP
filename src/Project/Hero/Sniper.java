@@ -1,4 +1,6 @@
-package Seminar.Seminar1;
+package Project.Hero;
+
+import Project.AbstractCLasesAndInterface.Archer;
 
 public class Sniper extends Archer {
     public Sniper(String name, int x, int y) {

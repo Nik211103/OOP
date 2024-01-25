@@ -1,4 +1,6 @@
-package Seminar.Seminar1;
+package Project.Hero;
+
+import Project.AbstractCLasesAndInterface.Walker;
 
 public class Rogue extends Walker {
     public Rogue(String name, int x, int y) {

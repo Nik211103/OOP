@@ -1,4 +1,6 @@
-package Seminar.Seminar1;
+package Project.Hero;
+
+import Project.AbstractCLasesAndInterface.Hero;
 
 public class Peasant extends Hero {
     public Peasant(String name, int x, int y) {

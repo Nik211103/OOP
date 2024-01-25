@@ -1,4 +1,6 @@
-package Seminar.Seminar1;
+package Project.AbstractCLasesAndInterface;
+
+import Project.SystemFile.Vector2;
 
 import java.util.ArrayList;
 
@@ -7,7 +9,7 @@ public abstract class Hero implements Game {
     protected String name;
     protected float maxHealth, health, maxArmor, armor;
     protected int[] damage;
-    protected Vector2 position;
+    public Vector2 position;
 
     protected int initiative;
 
@@ -33,7 +35,7 @@ public abstract class Hero implements Game {
     public float getArmor() {return armor;}
 
     public int[] getPosition() {
-        return new int[]{position.x, position.y};
+        return new int[]{position.getX(), position.getY()};
     }
 
     public int getInitiative() {return initiative;}
@@ -95,6 +97,6 @@ public abstract class Hero implements Game {
 
     @Override
     public String toString() {
-        return "-" + name + " => Здоровье: " + health + "/" + maxHealth + ", Броня: " + armor + "/" + maxArmor + ", Позиция: (" + position.x + ", " + position.y + ")";
+        return "-" + name + " => Здоровье: " + health + "/" + maxHealth + ", Броня: " + armor + "/" + maxArmor + ", Позиция: (" + position.getX() + ", " + position.getY() + ")";
     }
 }
