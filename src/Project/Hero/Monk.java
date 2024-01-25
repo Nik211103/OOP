@@ -14,16 +14,19 @@ public class Monk extends Healer {
                 y,
                 2,
                 7,
-                2);
+                3,
+                100,
+                100,
+                5);
     }
 
     @Override
     public String getInfo() {
-        return "Монах";
+        return "Лекарь";
     }
 
     @Override
     public String toString() {
-        return "Монах" + super.toString();
+        return "Лекарь " + super.toString();
     }
 }

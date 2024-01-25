@@ -1,7 +1,5 @@
 package Project.AbstractCLasesAndInterface;
 
-import Project.AbstractCLasesAndInterface.Hero;
-
 import java.util.ArrayList;
 
 public interface Game {

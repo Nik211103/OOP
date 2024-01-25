@@ -14,18 +14,20 @@ public class Crossbower extends Archer {
                 x,
                 y,
                 3,
-                30,
-                30,
-                7);
+                10,
+                5,
+                7,
+                10,
+                2);
     }
 
     @Override
     public String getInfo() {
-        return "Арбалетчки";
+        return "Арбалетчик";
     }
 
     @Override
     public String toString() {
-        return "Арбалетчки" + super.toString();
+        return "Арбалетчик" + super.toString();
     }
 }

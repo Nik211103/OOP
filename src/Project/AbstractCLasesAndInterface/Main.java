@@ -1,6 +1,5 @@
 package Project.AbstractCLasesAndInterface;
 
-import Project.AbstractCLasesAndInterface.Hero;
 import Project.Hero.*;
 import Project.SystemFile.NameOfHeroes;
 import Project.SystemFile.View;
@@ -42,7 +41,7 @@ public class Main {
                 }
             }
         }
-        String winner = whoWon? "Зеленая команда" : "Синяя комнада";
+        String winner = whoWon? "Зеленая команда" : "Синяя команда";
         System.out.println(winner + " победила!");
     }
 

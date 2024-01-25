@@ -24,15 +24,16 @@ public abstract class Hero implements Game {
         this.initiative = initiative;
     }
 
+
+//    public float getMaxHealth() {return maxHealth;}
+//
+//    public float getMaxArmor() {return maxArmor;}
+//
+//    public float getArmor() {return armor;}
+
     public String getName() {return name;}
 
-    public float getMaxHealth() {return maxHealth;}
-
     public float getHealth() {return health;}
-
-    public float getMaxArmor() {return maxArmor;}
-
-    public float getArmor() {return armor;}
 
     public int[] getPosition() {
         return new int[]{position.getX(), position.getY()};
@@ -46,35 +47,84 @@ public abstract class Hero implements Game {
         return health == 0;
     }
 
-    protected void printDistance(ArrayList<Hero> enemies) {
-        enemies.forEach(n->System.out.print(position.getDistance(n) + ", "));
+//    protected void printDistance(ArrayList<Hero> enemies) {
+//        enemies.forEach(n->System.out.print(position.getDistance(n) + ", "));
+//    }
+
+    protected Vector2 nextPosition(Hero hero) {
+        int step = 1;
+        Vector2 deltas = position.getDeltas(hero);
+        Vector2 nextPosition = new Vector2(position.getX(), position.getY());
+
+        int deltaX = deltas.getX();
+        int deltaY = deltas.getY();
+
+        if (deltaX < 0) {
+            nextPosition.setX(nextPosition.getX() + step);
+        } else if (deltaX > 0) {
+            nextPosition.setX(nextPosition.getX() - step);
+        } else if (deltaY < 0) {
+            nextPosition.setY(nextPosition.getY() + step);
+        } else if (deltaY > 0) {
+            nextPosition.setY(nextPosition.getY() - step);
+        }
+
+        return nextPosition;
     }
 
-    protected Hero nearestAlive(ArrayList<Hero> heroes) {
-        int i;
-        Hero currentEnemy, nearestAliveEnemy = null;
-        int enemiesSize = heroes.size();
-
-        for (i = 0; i < enemiesSize; i++) {
-            currentEnemy = heroes.get(i);
-            if (currentEnemy.health > 0) {
-                nearestAliveEnemy = currentEnemy;
+    protected void moveToward(Hero hero, ArrayList<Hero> teammates) {
+        Vector2 nextPosition = nextPosition(hero);
+        boolean isStepFree = true;
+        for (Hero teammate : teammates) {
+            if (nextPosition.equals(teammate.position) && teammate.health > 0) {
+                isStepFree = false;
                 break;
             }
         }
+        if (isStepFree) position = nextPosition;
+    }
 
-        for (int j = i + 1; j < enemiesSize; j++) {
-            currentEnemy = heroes.get(j);
-            if(currentEnemy.health > 0) {
-                assert nearestAliveEnemy != null;
-                if (position.getDistance(currentEnemy) < position.getDistance(nearestAliveEnemy)) {
-                    nearestAliveEnemy = currentEnemy;
+    protected Hero nearest(ArrayList<Hero> heroes, String status, String type) {
+        Hero currentHero, nearestHero = null;
+        int teamSize = heroes.size();
+        int i;
+        boolean isAlive;
+        boolean isWounded;
+
+        for (i = 0; i < teamSize; i++) {
+            currentHero = heroes.get(i);
+
+            isAlive = currentHero.health > 0;
+            isWounded = currentHero.health < currentHero.maxHealth * 0.4;
+
+            if ( (status.equals("Живой") && isAlive) || (status.equals("Мертвый") && !isAlive) || (status.equals("Раненый") && isWounded) ) {
+                if (type.equals("все") || type.equals(currentHero.getInfo())) {
+                    nearestHero = currentHero;
+                    break;
                 }
             }
         }
 
-        return nearestAliveEnemy;
+        if (nearestHero != null) {
+            for (int j = i + 1; j < teamSize; j++) {
+                currentHero = heroes.get(j);
+
+                isAlive = currentHero.health > 0;
+                isWounded = currentHero.health < currentHero.maxHealth * 0.4;
+
+                if ( (status.equals("Живой") && isAlive) || (status.equals("Мертвый") && !isAlive) || (status.equals("Раненый") && isWounded) ) {
+                    if (type.equals("все") || type.equals(currentHero.getInfo())) {
+                        if (position.getDistance(currentHero) < position.getDistance(nearestHero)) {
+                            nearestHero = currentHero;
+                        }
+                    }
+                }
+            }
+        }
+
+        return nearestHero;
     }
+
 
     protected void receiveDamage(float damage) {
         if (damage < armor) {

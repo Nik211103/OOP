@@ -14,8 +14,10 @@ public class Sniper extends Archer {
                 y,
                 3,
                 10,
+                5,
+                15,
                 10,
-                15);
+                2);
     }
 
     @Override

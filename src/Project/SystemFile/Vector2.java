@@ -23,10 +23,9 @@ public class Vector2 {
         return (float) Math.sqrt(Math.pow(x - position.x, 2) + Math.pow(y - position.y, 2));
     }
 
-    public Vector2 getDeltas(Vector2 positionEnemy) {
-        return new Vector2(x - positionEnemy.x, y - positionEnemy.y);
+    public Vector2 getDeltas(Hero enemy) {
+        return new Vector2(x - enemy.position.x, y - enemy.position.y);
     }
-
     public boolean equals(Vector2 positionEnemy) {
         return x == positionEnemy.getX() && y == positionEnemy.getY();
     }
