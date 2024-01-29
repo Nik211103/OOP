@@ -15,7 +15,7 @@ public class Crossbower extends Archer {
                 y,
                 3,
                 10,
-                5,
+                10,
                 7,
                 10,
                 2);

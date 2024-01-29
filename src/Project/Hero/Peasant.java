@@ -25,6 +25,6 @@ public class Peasant extends Human{
 
     @Override
     public String toString() {
-        return "Человек" + super.toString();
+        return "Человек" + super.toString() + ", Занят: " + (isBusy? "да" : "нет");
     }
 }

@@ -75,12 +75,14 @@ public abstract class Hero implements Game {
     protected void moveToward(Hero hero, ArrayList<Hero> teammates) {
         Vector2 nextPosition = nextPosition(hero);
         boolean isStepFree = true;
+
         for (Hero teammate : teammates) {
             if (nextPosition.equals(teammate.position) && teammate.health > 0) {
                 isStepFree = false;
                 break;
             }
         }
+
         if (isStepFree) position = nextPosition;
     }
 

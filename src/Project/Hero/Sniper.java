@@ -9,7 +9,7 @@ public class Sniper extends Archer {
                 75,
                 10,
                 10,
-                new int[]{25, 35},
+                new int[]{15, 25},
                 x,
                 y,
                 3,
